@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+  db:
+    image: redis
+    restart: unless-stopped
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    links:
+      - "db:database"
+    environment: 
+      - DB_ADDR=database:6379
+      - SERVER_PORT=8888
+    volumes: 
+      - ./names.txt:/names.txt
+    depends_on: 
+      - db
