@@ -155,3 +155,8 @@ div.input__block:hover > label, div.input__block > label.input__filled {
     margin: 3rem auto 10px auto;
     text-align: center;
 }
+
+.info-container {
+    width: 100%;
+    max-width: 600px;
+}
