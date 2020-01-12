@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/scottjr632/go/net/http/helpers"
 	"github.com/scottjr632/interesting-url-transformer/server/handlers/apihandler"
 	"github.com/scottjr632/interesting-url-transformer/server/handlers/middleware"
 	"github.com/scottjr632/interesting-url-transformer/server/handlers/resolver"
@@ -41,7 +40,7 @@ func (h *handlers) rootHandler(w http.ResponseWriter, r *http.Request) {
 	case urlt != "":
 		h.f.Proxy(urlt, w, r)
 	default:
-		helpers.WriteError(w, fmt.Errorf("No url provided"), http.StatusBadRequest)
+		http.FileServer(http.Dir("./public")).ServeHTTP(w, r)
 	}
 }
 

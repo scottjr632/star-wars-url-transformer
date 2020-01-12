@@ -1,0 +1,157 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+margin: 0;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+
+background-color: #fdfdfd;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 50pt;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 25pt;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 2.3rem;
+}
+
+h4 {
+    font-weight: 200;
+    font-size: 2.1rem;
+}
+
+p {
+    font-weight: 100;
+    font-size: 1.5rem;
+}
+
+a {
+    color: black;
+}
+
+label, input, button {
+    font-weight: 100;
+    font-size: 1.9rem;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.action {
+    width: 85%;
+    height: 50%;
+    background-color: #f1f1f1;
+    border-radius: 45px;
+
+    padding: 45px;
+
+    box-shadow: 
+        9px 9px 9px rgba(0, 0, 0, 0.1);
+}
+
+div.input__block {
+    margin-top: 50px;
+    position: relative;
+}
+
+div.input__block > .input {
+    border: none;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: 1pt black solid;
+    font-size: 1.5rem;
+    text-indent: 10px;
+}
+
+div.input__block > label {
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    top: -5px;
+    left: 5px;
+}
+
+div.input__block:hover > label, div.input__block > label.input__filled {
+    top: calc(-1.9rem - 3px) !important;
+    left: -10px !important;
+}
+
+.error {
+    width: 100%;
+    align-self: center;
+    background-color: red;
+    padding: 5px 10px;
+    text-align: center;
+
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.error > p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.hidden {
+    display: none;
+}
+
+.button__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.button__container button {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.button__container button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: black;
+}
+
+.transformed__url-container {
+    margin: 3rem auto 10px auto;
+    text-align: center;
+}
