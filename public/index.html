@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hello There</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>URL Transformer</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="center action">
-            <div class="container" style="height: 100%">
-                <div class="center info-container">
-                    <h4>Transform any url to an easier to read url.</h4>
-                    <p>Link is permanent and will not change.</p>
-                    <div class="transformed__url-container">
-                        <p>Transformed URL</p>
-                        <a href="#" id="turllink"></a>
-                    </div>
-                    <div class="input__block">
-                        <input type="text" id="urlinput" class="input" autocomplete="off">
-                        <label for="urlinput" id="urllabel">URL</label>
-                        <div class="error hidden" id="urlerr"><p>Invalid URL</p></div>
-                    </div>
-                    <div class="button__container">
-                        <button id="transformbutton">Transform</button>
-                    </div>
-                </div>
+      <div class="center action">
+        <div class="container" style="height: 100%">
+          <div class="center info-container">
+            <h4>Transform any url to an easier to read url.</h4>
+            <p>Link is permanent and will not change.</p>
+            <div class="transformed__url-container">
+              <p>Transformed URL</p>
+              <a href="#" id="turllink"></a>
             </div>
+            <div class="input__block">
+              <input
+                type="text"
+                id="urlinput"
+                class="input"
+                autocomplete="off"
+              />
+              <label for="urlinput" id="urllabel">URL</label>
+              <div class="error hidden" id="urlerr"><p>Invalid URL</p></div>
+            </div>
+            <div class="button__container">
+              <button id="transformbutton">Transform</button>
+            </div>
+            <span class="gh__svg">
+              <p>
+                Check out the project on
+              </p> 
+              <div class="gh__svg-container">
+                <a href="https://github.com/scottjr632/short-url-transformer">
+                  <img src="res/github.svg" alt="Github Icon">
+                </a>
+              </div>
+            </span>
+          </div>
         </div>
+      </div>
     </div>
     <script src="globals.js"></script>
     <script src="urlvalidator.js"></script>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
