@@ -1,7 +1,8 @@
 package reverseproxy
 
 import (
-	"net/http"
+    "crypto/tls"
+    "net/http"
 	"net/http/httputil"
 	"net/url"
 )
@@ -14,7 +15,9 @@ func Serve(target string, w http.ResponseWriter, r *http.Request) {
 func serveReverseProxy(target string, w http.ResponseWriter, r *http.Request) {
 	url, _ := url.Parse(target)
 	proxy := httputil.NewSingleHostReverseProxy(url)
-
+	proxy.Transport = &http.Transport{TLSClientConfig: &tls.Config{
+		InsecureSkipVerify: true,
+	}}
 	r.URL.Host = url.Host
 	r.URL.Scheme = url.Scheme
 	r.Header.Set("X-Forwarded-Host", r.Header.Get("Host"))

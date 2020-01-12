@@ -1,6 +1,7 @@
 package middleware
 
 import (
+    "log"
 	"context"
 	"net/http"
 	"regexp"
@@ -33,7 +34,9 @@ func MakeSubdomainFetcher(regexStr string, next http.Handler) http.Handler {
 func MakeSubdomainFetcherHandler(regexStr string, next http.HandlerFunc) http.Handler {
 	re := regexp.MustCompile(regexStr)
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        log.Println("HOST", r.Host)
 		subdomain := re.FindString(r.Host)
+        log.Println("SUBDOMAIN", subdomain)
 		if strings.Contains(subdomain, ".") {
 			subdomain = strings.Replace(subdomain, ".", "", 1)
 		}
