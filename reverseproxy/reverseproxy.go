@@ -9,7 +9,7 @@ import (
 
 // Serve ...
 func Serve(target string, w http.ResponseWriter, r *http.Request) {
-   http.Redirect(w, r, target, http.StatusSeeOther)
+	http.Redirect(w, r, target, http.StatusSeeOther)
 }
 
 func serveReverseProxy(target string, w http.ResponseWriter, r *http.Request) {
