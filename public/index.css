@@ -88,7 +88,7 @@ button {
 
   padding: 45px;
 
-  box-shadow: 9px 9px 9px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0 9px rgba(0, 0, 0, 0.35);
 }
 
 @media only screen and (max-width: 660px) {
