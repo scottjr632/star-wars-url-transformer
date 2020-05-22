@@ -3,12 +3,13 @@ import React, { FC, useEffect } from 'react';
 import styles from './error.module.scss';
 
 interface Props {
-  errorMessage: any
+  errorMessage?: any
 }
 
 const StarWarsError: FC<Props> = ({ children, errorMessage }) => {
   useEffect(() => {
-    console.error({ errorMessage });
+    if (errorMessage)
+      console.error({ errorMessage });
   });
 
   return (
