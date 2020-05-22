@@ -19,5 +19,7 @@ services:
       - SERVER_PORT=8888
     volumes: 
       - ./names.txt:/names.txt
+      - ./firstnames.txt:/firstnames.txt
+      - ./lastnames.txt:/lastnames.txt
     depends_on: 
       - db

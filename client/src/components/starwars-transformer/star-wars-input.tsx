@@ -13,24 +13,24 @@ interface Props {
 }
 
 const SwitchOnMutationResult = ({ data, error, status, getURL }:
-MutationResult<TransformedUrlResponse> & Props) => {
+  MutationResult<TransformedUrlResponse> & Props) => {
 
   switch (true) {
-  case !!error:
-    return (
-      <>
-        <StarWarsError errorMessage={error}>
-            Something went wrong. Please try again
-        </StarWarsError>
-        <URLInput getURL={getURL} />
-      </>
-    );
-  case status === 'success' && !!data:
-    return <StarWarsURL subdomain={data!.url} />;
-  case status === 'idle':
-    return <URLInput getURL={getURL} />;
-  default:
-    return <Loading />;
+    case !!error:
+      return (
+        <>
+          <URLInput getURL={getURL} />
+          <StarWarsError errorMessage={error}>
+            Something went wrong. Please try again.
+          </StarWarsError>
+        </>
+      );
+    case status === 'success' && !!data:
+      return <StarWarsURL subdomain={data!.url} />;
+    case status === 'idle':
+      return <URLInput getURL={getURL} />;
+    default:
+      return <Loading />;
   }
 
 };

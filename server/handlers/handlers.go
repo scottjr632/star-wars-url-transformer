@@ -45,7 +45,7 @@ func (h *handlers) rootHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *handlers) RegisterAll() error {
-	re := fmt.Sprintf(`^(\S{3}-\S{3}-\S{3})\.%s`, h.domain)
+	re := fmt.Sprintf(`^(\w+-\w+)\.%s`, h.domain)
 
 	http.Handle("/", middleware.Standard.Then(middleware.MakeSubdomainFetcherHandler(re, h.rootHandler)))
 

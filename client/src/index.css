@@ -24,3 +24,12 @@ textarea:focus, input:focus{
 a {
   color: inherit;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+* {
+  -ms-overflow-style: none;
+}
