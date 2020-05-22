@@ -1,47 +1,53 @@
-import { useState, useCallback, useEffect, useRef } from 'react'
-import axios from 'axios'
-import useBoolean from './useBoolean'
+import { useState, useCallback, useEffect, useRef } from 'react';
 
+import useBoolean from './useBoolean';
 
-type Query<T, V> = (vars?: V) => Promise<T>
-export function useQuery<TData, V>(query: Query<TData, V>, vars?: V) {
+interface Options<V> {
+  vars?: V
+  automaticFetch?: boolean
+}
+
+type Query<T, V = {}> = (vars?: V) => Promise<T>
+export function useQuery<TData, V = {}>(query: Query<TData, V>, options?: Options<V>) {
   const [error, setError] = useState(undefined);
   const [data, setData] = useState<TData | null>(null);
 
   const {
     bool: loading,
     setFalse: setLoadingFalse,
-    setTrue: setLoadingTrue
-  } = useBoolean(true)
+    setTrue: setLoadingTrue,
+  } = useBoolean(true);
 
   const queryRef = useRef(query);
-  const queryVarsRef = useRef(vars);
+  const queryVarsRef = useRef(options?.vars);
 
   useEffect(() => {
-    queryRef.current = query
-  })
+    queryRef.current = query;
+  });
 
   useEffect(() => {
-    queryVarsRef.current = vars
-  })
+    queryVarsRef.current = options?.vars;
+  });
 
   const fetchData = useCallback(async () => {
-    setLoadingTrue()
+    setLoadingTrue();
     try {
-      const data = await queryRef.current(queryVarsRef.current)
-      setData(data)
+      const data = await queryRef.current(queryVarsRef.current);
+      setData(data);
     } catch (error) {
-      setError(error)
+      setError(error);
     } finally {
-      setLoadingFalse()
+      setLoadingFalse();
     }
-  }, [])
+  }, [setLoadingTrue, setData, setError]);
 
   useEffect(() => {
-    fetchData()
-  }, [])
+    if (options?.automaticFetch) {
+      fetchData();
+    }
+  }, [fetchData]);
 
-  return { data, error, loading, refetch: fetchData }
+  return { data, error, loading, refetch: fetchData };
 }
 
-export default useQuery
+export default useQuery;

@@ -1,1 +1,1 @@
-export { default as NeoMorphPanel } from './neomorph-pannel'
+export { default as NeoMorphPanel } from './neomorph-pannel';

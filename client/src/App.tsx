@@ -1,12 +1,11 @@
 import React from 'react';
 
-import StarWars from './components/svgs/star-wars'
-import { ReactComponent as GitHubSVG } from './res/github.svg'
-import { NeoMorphPanel } from './components/panels/neomorph-pannel'
-import { NeoMorphismInput } from './components/inputs/neomorp-input'
-import { NeoMorphButton } from './components/buttons/neomorph-button'
+import StarWars from './components/svgs/star-wars';
+import { ReactComponent as GitHubSVG } from './res/github.svg';
+import { NeoMorphPanel } from './components/panels/neomorph-pannel';
+import StarWarsInput from './components/starwars-transformer/star-wars-input';
 
-import './app.scss'    
+import './app.scss';
 
 function App() {
   return (
@@ -17,14 +16,7 @@ function App() {
             <StarWars />
             <h2>Star Wars URL Transformer</h2>
           </div>
-          <div className="app__input-container">
-            <div className='app__input-container--info'>
-              <h4>Enter url</h4>
-              <p>Urls are probabilistically unique and permanent</p>
-            </div>
-            <NeoMorphismInput placeholder={'https://google.com'} />
-            <NeoMorphButton>Submit</NeoMorphButton>
-          </div>
+          <StarWarsInput />
           <h4 className={'app__action-info'}>
             <div>
               Check out the project on

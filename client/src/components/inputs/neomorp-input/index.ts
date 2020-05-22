@@ -1,1 +1,1 @@
-export { default as NeoMorphismInput } from './neomporph-input'
+export { default as NeoMorphismInput } from './neomporph-input';

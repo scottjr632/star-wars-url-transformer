@@ -1,1 +1,1 @@
-export { default as NeoMorphButton } from './neomorph-button'
+export { default as NeoMorphButton } from './neomorph-button';

@@ -1,0 +1,1 @@
+export { default as StarWarsURL } from './url';
