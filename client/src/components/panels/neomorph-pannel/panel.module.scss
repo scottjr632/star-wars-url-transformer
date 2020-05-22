@@ -1,0 +1,27 @@
+.panel {
+    background-color: #404852;
+    box-shadow: -4px -4px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    min-width: 15rem;
+    width: 80%;
+    height: 85%;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    h1, h2, h3 {
+        color: white !important;
+        font-weight: 500;
+        font-size: 1.1459;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        width: 100%;
+        border-bottom: 1pt solid white;
+        padding-bottom: 1rem;
+    }
+
+    >div {
+
+    }
+}

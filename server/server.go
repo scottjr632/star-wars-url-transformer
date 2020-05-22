@@ -2,10 +2,11 @@ package server
 
 import (
 	"fmt"
-	"github.com/scottjr632/interesting-url-transformer/server/handlers"
-	"github.com/scottjr632/interesting-url-transformer/server/handlers/apihandler"
 	"log"
 	"net/http"
+
+	"github.com/scottjr632/interesting-url-transformer/server/handlers"
+	"github.com/scottjr632/interesting-url-transformer/server/handlers/apihandler"
 )
 
 // Server ...
@@ -19,7 +20,7 @@ type server struct {
 
 func (s *server) Run() error {
 	port := fmt.Sprintf(":%v", s.Port)
-	log.Printf("Server running on port :%v", port)
+	log.Printf("Server running on port %v", port)
 	return http.ListenAndServe(port, nil)
 }
 

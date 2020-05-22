@@ -1,0 +1,1 @@
+export { default as NeoMorphismInput } from './neomporph-input'
