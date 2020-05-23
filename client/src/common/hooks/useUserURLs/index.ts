@@ -28,7 +28,7 @@ export const useUserURLs = () => {
         setData(values);
 
     });
-  });
+  }, []);
 
   const appendData = useCallback(({ data }: MessageEvent) => {
     if (data) {
