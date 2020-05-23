@@ -2,7 +2,8 @@ import React from 'react';
 
 import StarWars from './components/svgs/star-wars';
 import { ReactComponent as GitHubSVG } from './res/github.svg';
-import { NeoMorphPanel } from './components/panels/neomorph-pannel';
+
+import { UserURLs } from './components/starwars-transformer/user-urls'
 import StarWarsInput from './components/starwars-transformer/star-wars-input';
 
 import './app.scss';
@@ -32,9 +33,7 @@ function App() {
           </h4>
         </div>
         <div className={'app__right-container'}>
-          <NeoMorphPanel>
-            <h2>Popular</h2>
-          </NeoMorphPanel>
+          <UserURLs />
         </div>
       </div>
     </div>

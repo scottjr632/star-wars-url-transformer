@@ -68,6 +68,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 100%;
+    overflow: hidden;
 
     >div {
         margin-top: 2rem;

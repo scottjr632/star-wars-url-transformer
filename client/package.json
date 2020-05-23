@@ -11,6 +11,7 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "axios": "^0.19.2",
+    "localforage": "^1.7.3",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/eslint": "^6.8.1",
+    "@types/localforage": "^0.0.34",
     "@types/node-sass": "^4.11.1",
     "@types/react-query": "^1.1.2",
     "@typescript-eslint/eslint-plugin": "^2.25.0",

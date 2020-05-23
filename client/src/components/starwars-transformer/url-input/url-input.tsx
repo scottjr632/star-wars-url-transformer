@@ -4,6 +4,7 @@ import { NeoMorphismInput } from '../../inputs/neomorp-input';
 import { NeoMorphButton } from '../../buttons/neomorph-button';
 import { validateURL } from '../../../common/utils';
 import { StarWarsError } from '../error';
+import { useNewUserURL } from '../../../common/hooks/useUserURLs';
 
 const MIN_VALID_URL = 7;
 
@@ -13,8 +14,9 @@ interface Props {
 
 const UrlInput: FC<Props> = ({ getURL }) => {
   const [value, setValue] = useState('');
-  // const [isValidURL, setIsValidURL] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>('');
+
+  const newUserUrl = useNewUserURL()
 
   useEffect(() => {
     if (!validateURL(value) && value.length > MIN_VALID_URL) {
@@ -24,9 +26,10 @@ const UrlInput: FC<Props> = ({ getURL }) => {
     }
   }, [value]);
 
-  const handleGetURL = useCallback(() => {
+  const handleGetURL = useCallback(async () => {
     if (!errorMessage && value.length > MIN_VALID_URL) {
-      getURL(value)
+      const { url } = await getURL(value)
+      newUserUrl(url)
     } else if (!errorMessage) {
       setErrorMessage(`URL needs to be at least ${MIN_VALID_URL} characters`)
     }
@@ -46,9 +49,9 @@ const UrlInput: FC<Props> = ({ getURL }) => {
       />
       <NeoMorphButton onClick={handleGetURL}>Submit</NeoMorphButton>
       {!!errorMessage &&
-      <StarWarsError>
-        {errorMessage}
-      </StarWarsError>}
+        <StarWarsError>
+          {errorMessage}
+        </StarWarsError>}
     </>
   );
 };
