@@ -3,7 +3,7 @@ import React from 'react';
 import StarWars from './components/svgs/star-wars';
 import { ReactComponent as GitHubSVG } from './res/github.svg';
 
-import { UserURLs } from './components/starwars-transformer/user-urls'
+import { UserURLs } from './components/starwars-transformer/user-urls';
 import StarWarsInput from './components/starwars-transformer/star-wars-input';
 
 import './app.scss';

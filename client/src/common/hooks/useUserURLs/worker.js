@@ -1,9 +1,9 @@
 
 export default function () {
-    this.addEventListener('message', ({ data }) => {
+  this.addEventListener('message', ({ data }) => {
 
-        if (!data) return
+    if (!data) return;
 
-        postMessage(data)
-    })
+    postMessage(data);
+  });
 }

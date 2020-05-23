@@ -1,1 +1,1 @@
-export { default as UserURLs } from './user-urls'
+export { default as UserURLs } from './user-urls';

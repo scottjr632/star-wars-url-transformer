@@ -16,11 +16,11 @@ const UrlInput: FC<Props> = ({ getURL }) => {
   const [value, setValue] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>('');
 
-  const newUserUrl = useNewUserURL()
+  const newUserUrl = useNewUserURL();
 
   useEffect(() => {
     if (!validateURL(value) && value.length > MIN_VALID_URL) {
-      setErrorMessage('URL is invalid')
+      setErrorMessage('URL is invalid');
     } else {
       setErrorMessage(null);
     }
@@ -28,12 +28,12 @@ const UrlInput: FC<Props> = ({ getURL }) => {
 
   const handleGetURL = useCallback(async () => {
     if (!errorMessage && value.length > MIN_VALID_URL) {
-      const { url } = await getURL(value)
-      newUserUrl(url)
+      const { url } = await getURL(value);
+      newUserUrl(url);
     } else if (!errorMessage) {
-      setErrorMessage(`URL needs to be at least ${MIN_VALID_URL} characters`)
+      setErrorMessage(`URL needs to be at least ${MIN_VALID_URL} characters`);
     }
-  }, [getURL, value, errorMessage])
+  }, [getURL, value, errorMessage, newUserUrl]);
 
   return (
     <>

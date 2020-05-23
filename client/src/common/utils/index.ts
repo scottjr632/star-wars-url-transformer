@@ -5,5 +5,5 @@ export const validateURL = (toValidate: string): boolean => {
 };
 
 export function removeDups<T>(arr: Array<T>): Array<T> {
-  return Array.from(new Set(arr))
+  return Array.from(new Set(arr));
 }

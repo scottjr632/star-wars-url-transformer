@@ -7,9 +7,10 @@ interface Props {
   showInfo?: boolean
 
   style?: CSSProperties
+  linkStyle?: CSSProperties
 }
 
-const URL: FC<Props> = ({ subdomain, style, showInfo = true }) => {
+const URL: FC<Props> = ({ subdomain, style, linkStyle, showInfo = true }) => {
   const [fullUrl, setFullUrl] = useState('');
 
   useEffect(() => {
@@ -22,7 +23,7 @@ const URL: FC<Props> = ({ subdomain, style, showInfo = true }) => {
     <div className={styles.url} style={style}>
       <h3>
         {fullUrl.length > 0 &&
-          <a href={fullUrl} target="_blank" rel="noopener noreferrer">{fullUrl}</a>
+          <a href={fullUrl} target="_blank" rel="noopener noreferrer" style={linkStyle}>{fullUrl}</a>
         }
       </h3>
       {showInfo &&

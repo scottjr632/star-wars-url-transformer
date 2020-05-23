@@ -3,62 +3,63 @@
     I just wanted to test out web workers
 */
 
-import { useState, useEffect, useCallback } from 'react'
-import localForage from 'localforage'
+import { useState, useEffect, useCallback } from 'react';
+import localForage from 'localforage';
 
-import workerFile from './worker.js'
-import WebWorker from './workerSetup'
-import { removeDups } from '../../utils'
+import { removeDups } from '../../utils';
 
-const worker = new WebWorker(workerFile)
-const key = 'userurls'
+import workerFile from './worker.js';
+import WebWorker from './workerSetup';
+
+const worker = new WebWorker(workerFile);
+const key = 'userurls';
 
 export const useUserURLs = () => {
-    const [data, setData] = useState<string[]>([])
+  const [data, setData] = useState<string[]>([]);
 
-    useEffect(() => {
-        localForage.getItem<string[]>(key, (err, values) => {
-            if (err) {
-                console.error(err)
-                return
-            }
+  useEffect(() => {
+    localForage.getItem<string[]>(key, (err, values) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
 
-            if (values)
-                setData(values)
+      if (values)
+        setData(values);
 
-        })
-    })
+    });
+  });
 
-    const appendData = useCallback(({ data }: MessageEvent) => {
-        if (data) {
-            setData(prevData => removeDups([data, ...prevData]))
-        }
-    }, [])
+  const appendData = useCallback(({ data }: MessageEvent) => {
+    if (data) {
+      setData(prevData => removeDups([data, ...prevData]));
+    }
+  }, []);
 
-    useEffect(() => {
-        worker.addEventListener('message', appendData)
-        return () => worker.removeEventListener('message', appendData)
-    }, [appendData])
+  useEffect(() => {
+    worker.addEventListener('message', appendData);
+    return () => worker.removeEventListener('message', appendData);
+  }, [appendData]);
 
-    return data
-}
+  return data;
+};
 
 export const useNewUserURL = () => {
-    const postNewURL = useCallback((newURL: string) => {
-        localForage.getItem<string[]>(key, (err, value) => {
-            if (err) {
-                console.error(err)
-                return
-            }
+  const postNewURL = useCallback((newURL: string) => {
+    localForage.getItem<string[]>(key, (err, value) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
 
-            if (value) {
-                localForage.setItem(key, removeDups([newURL, ...value]))
-            } else {
-                localForage.setItem(key, [newURL])
-            }
-        })
-        worker.postMessage(newURL)
-    }, [])
+      if (value) {
+        localForage.setItem(key, removeDups([newURL, ...value]));
+      } else {
+        localForage.setItem(key, [newURL]);
+      }
+    });
+    worker.postMessage(newURL);
+  }, []);
 
-    return postNewURL
-}
+  return postNewURL;
+};
