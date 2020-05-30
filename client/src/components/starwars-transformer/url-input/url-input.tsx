@@ -35,6 +35,12 @@ const UrlInput: FC<Props> = ({ getURL }) => {
     }
   }, [getURL, value, errorMessage, newUserUrl]);
 
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleGetURL();
+    }
+  }, [handleGetURL]);
+
   return (
     <>
       <div className='app__input-container--info'>
@@ -44,6 +50,7 @@ const UrlInput: FC<Props> = ({ getURL }) => {
       <NeoMorphismInput
         value={value}
         autoFocus={true}
+        onKeyDown={handleKeyDown}
         onChange={e => setValue(e.currentTarget.value)}
         placeholder={'https://google.com'}
       />

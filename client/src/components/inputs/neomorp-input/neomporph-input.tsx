@@ -7,7 +7,6 @@ type Props = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>
 const NeoMorphismInput =
   forwardRef<HTMLInputElement, Props>((props, ref) => {
 
-
     return (
       <input
         className={styles.neoInput}
