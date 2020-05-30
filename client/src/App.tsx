@@ -23,7 +23,7 @@ function App() {
               Check out the project on
             </div>
             <a
-              href='https://github.com/scottjr632'
+              href='https://github.com/scottjr632/star-wars-url-transformer'
               target='_blank'
               className={'app__action-info--svg_container'}
               rel='noopener noreferrer'
